@@ -93,13 +93,23 @@ function Home() {
               <span className="input-error">{errorMessages.lastName}</span>
             )}
             <label htmlFor="date-of-birth">Date of Birth</label>
-            <DatePicker onChange={setBirthDate} value={birthDate} />
+            <DatePicker
+              onChange={setBirthDate}
+              value={birthDate}
+              calendarAriaLabel
+              clearAriaLabel
+            />
             {!inputValidation.birthdate && (
               <span className="input-error">{errorMessages.birthdate}</span>
             )}
 
             <label htmlFor="start-date">Start Date</label>
-            <DatePicker onChange={setStartDate} value={startDate} />
+            <DatePicker
+              onChange={setStartDate}
+              value={startDate}
+              calendarAriaLabel
+              clearAriaLabel
+            />
             {!inputValidation.startdate && (
               <span className="input-error">{errorMessages.startdate}</span>
             )}
@@ -127,13 +137,15 @@ function Home() {
                 <span className="input-error">{errorMessages.city}</span>
               )}
 
-              <label htmlFor="state">State</label>
-              <Select
-                id="state"
-                options={states}
-                selected={selectedState}
-                onChange={(e) => setSelectedState(e)}
-              ></Select>
+              <label htmlFor="state">
+                State
+                <Select
+                  id="state"
+                  options={states}
+                  selected={selectedState}
+                  onChange={(e) => setSelectedState(e)}
+                ></Select>
+              </label>
               {!inputValidation.state && (
                 <span className="input-error">{errorMessages.state}</span>
               )}
@@ -149,13 +161,15 @@ function Home() {
               )}
             </fieldset>
 
-            <label htmlFor="department">Department</label>
-            <Select
-              id="department"
-              options={departments}
-              selected={selectedDepartment}
-              onChange={(e) => setSelectedDepartment(e)}
-            />
+            <label htmlFor="department">
+              Department
+              <Select
+                id="department"
+                options={departments}
+                selected={selectedDepartment}
+                onChange={(e) => setSelectedDepartment(e)}
+              />
+            </label>
             {!inputValidation.department && (
               <span className="input-error">{errorMessages.department}</span>
             )}
