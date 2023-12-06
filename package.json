@@ -19,8 +19,7 @@
     "react-router-dom": "^6.17.0",
     "react-select": "^5.7.7",
     "redux": "^4.2.1",
-    "simple-modal-jr-lib": "^1.0.2",
-    "styled-components": "^6.1.1"
+    "simple-modal-jr-lib": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

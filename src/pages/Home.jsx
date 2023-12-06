@@ -1,6 +1,7 @@
 import '../styles/Home.css'
 import { NavLink } from 'react-router-dom'
-import { Modal } from 'simple-modal-jr-lib'
+import Modal from 'simple-modal-jr-lib'
+import 'simple-modal-jr-lib/dist/index.css'
 import { useState } from 'react'
 import Select from 'react-select'
 import { states } from '../mocks/states'
@@ -14,7 +15,7 @@ import { FormValidation, errorMessages } from '../functions/formValidation'
 
 function Home() {
   const dispatch = useDispatch()
-  const [isOpen, setIsOpen] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [birthDate, setBirthDate] = useState(new Date())
@@ -54,7 +55,7 @@ function Home() {
     if (FormValidation(currentEmployee) == true) {
       setInputValidation(validationTrue)
       updateEmployee(currentEmployee)
-      setIsOpen(true)
+      setOpenModal(true)
     } else {
       setInputValidation(FormValidation(currentEmployee))
     }
@@ -179,7 +180,9 @@ function Home() {
           </button>
         </div>
 
-        {isOpen && <Modal setIsOpen={setIsOpen} text={'Employee Created !'} />}
+        <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+          <p>Employee created !</p>
+        </Modal>
       </div>
     </>
   )
